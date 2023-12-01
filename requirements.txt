@@ -1,13 +1,14 @@
-setuptools==50.3.2
+setuptools==57.5.0
+django-celery
+wheel==0.37.0
 amqp==5.1.1
 gunicorn==19.7.1
-anyjson==0.3.3
 asgiref==3.6.0
 async-timeout==4.0.3
 beautifulsoup4==4.11.2
 billiard==3.6.4.0
 bleach==6.0.0
-celery==5.2.7
+celery
 certifi==2023.7.22
 cffi==1.15.1
 charset-normalizer==3.2.0
@@ -22,7 +23,6 @@ dj-rest-auth==5.0.1
 Django==4.1.6
 django-allauth==0.56.1
 django-bootstrap4==22.3
-django-celery==3.3.1
 django-filter==22.1
 django-icons==22.1
 django-summernote==0.8.20.0
