@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block body %}
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/search.png' %});">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+			data-scrollax-parent="true">
+			<div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+				<p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span
+						class="mr-2"><a href="/">Home</a></span> <span class="mr-2"><a
+							href="#">Car</a></span> <span></span></p>
+				<h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Car Details
+				</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<section class="ftco-section ftco-degree-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 mx-autoP">
+				<div class="row">
+					<div class="col-md-12 ftco-animate">
+						<div class="single-slider owl-carousel">
+							{% for image in object.car_image.all %}
+							<div class="item">
+								<div class="hotel-img" style="background-image: url({{image.image.url}});"></div>
+							</div>
+							{% endfor %}
+						</div>
+						{% for rate in object.review_car.all %}
+						<p>
+                           <h5>Rating :</h5> <strong> {{rate.rate}} </strong> <h5>Author :</h5> {{rate.author}} <h5> FeedBack : </h5>{{rate.feedback}}
+						</p>
+						{% endfor %}
+
+					</div>
+					<div class="col-md-12 hotel-single mt-4 mb-5 ftco-animate">
+						 <strong> Our Best Cars </strong>
+						<h2>{{object}}</h2>
+						<p class="rate mb-5">
+							<span class="loc"><a href="#"><i class="icon-map"></i> {{object.name}}</a></span>
+							<span class="star">
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star"></i>
+								<i class="icon-star-o"></i>
+								4 Rating</span>
+						</p>
+						<p>{{object.description|safe}}</p>
+					</div>
+				 <div class="destination">
+				   <div class="text p-3">
+					  <p class="bottom-area d-flex">
+						<span class="ml-auto"><a href="tel:+971523660709">Book Now Call</a></span>
+					</p>
+					   <p class="bottom-area d-flex">
+						  <span class="ml-auto"><a href="https://wa.me/+971523660709?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20the%20car%20services%20you%20provide?%0A%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A7%D8%B1%D9%8A%D8%AF%20%D9%85%D8%B9%D8%B1%D9%81%D8%A9%20%D8%A7%D9%84%D9%85%D8%B2%D9%8A%D8%AF%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%8A%20%D8%AA%D9%82%D8%AF%D9%85%D9%88%D9%86%D9%87%D8%A7%20%D8%9F">Book Now Watsapp</a></span>
+				 	   </p>
+				   </div>
+				 </div>
+			 </div>
+			</div> <!-- .col-md-8 -->
+		</div>
+	</div>
+</section> <!-- .section -->
+{% endblock body %}
