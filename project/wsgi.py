@@ -1,18 +1,26 @@
-"""
-WSGI config for project project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
-"""
-
 import os
-
+import sys
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings')
+virtual_env = '/var/www/.virtualenvs/cp'
 
+# Modify sys.path to include the directories within the virtual environment
+sys.path = [
+    f'{virtual_env}/lib/python3.10',
+    f'{virtual_env}/lib/python3.10/plat-linux',
+    f'{virtual_env}/lib/python3.10/lib-dynload',
+    f'{virtual_env}/lib/python3.10/site-packages',
+    # Add other paths if necessary
+] + sys.path
+
+# Add the Django project path to sys.path
+sys.path.insert(0, '/var/www/django_projects/cp')
+
+# Set the Django settings module
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+
+# Get the WSGI application
 application = get_wsgi_application()
 
+# Use 'application' as the WSGI callable
 app = application
