@@ -1,7 +1,6 @@
 setuptools==57.5.0
 django-celery
 wheel==0.37.0
-pysqlite==2.8.2
 amqp==5.1.1
 antiorm==1.2.1
 asgiref==3.6.0
