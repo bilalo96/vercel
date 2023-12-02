@@ -14,10 +14,10 @@ sys.path = [
 ] + sys.path
 
 # Add the Django project path to sys.path
-sys.path.insert(0, '/var/www/django_projects/cp')
+sys.path.insert(0, '/var/www/django_projects/project')
 
 # Set the Django settings module
-os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
 
 # Get the WSGI application
 application = get_wsgi_application()
